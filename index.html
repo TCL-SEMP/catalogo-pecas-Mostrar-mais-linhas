@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo de Peças</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+h1{
+    color: #0066cc;
+}
+
+input{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+button{
+    padding: 10px 20px;
+    background: #0066cc;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#resultado{
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    padding: 15px;
+}
+</style>
+</head>
+<body>
+
+<h1>🔧 Catálogo de Peças</h1>
+
+<input type="text" id="codigo" placeholder="Digite o código da peça">
+
+<button onclick="buscar()">Buscar</button>
+
+<div id="resultado"></div>
+
+<script>
+const pecas = [
+    {
+        codigo: "P001",
+        descricao: "Sensor de Temperatura",
+        equipamento: "XP300"
+    },
+    {
+        codigo: "P002",
+        descricao: "Placa Principal",
+        equipamento: "XP500"
+    }
+];
+
+function buscar() {
+    const codigo = document.getElementById("codigo").value.toUpperCase();
+
+    const peca = pecas.find(
+        item => item.codigo === codigo
+    );
+
+    document.getElementById("resultado").innerHTML =
+    peca ?
+    `<h3>${peca.codigo}</h3>
+    <p><b>Descrição:</b> ${peca.descricao}</p>
+    <p><b>Equipamento:</b> ${peca.equipamento}</p>`
+    :
+    "Peça não encontrada.";
+}
+</script>
+
+</body>
+</html>
