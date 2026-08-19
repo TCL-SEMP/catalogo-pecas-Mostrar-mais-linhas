@@ -1,2 +1,2 @@
-# catalogo-pecas-Mostrar-mais-linhas
+# catalogo-pecas
 Lista de peças
